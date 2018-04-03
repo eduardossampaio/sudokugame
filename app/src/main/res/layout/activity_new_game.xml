@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.apps.esampaio.sudoku.view.NewGameActivity">
+
+    <include layout="@layout/toolbar" />
+
+    <TextView
+        android:text="@string/select_difficulty"
+        android:layout_width="match_parent"
+        style="@style/TitleStyle"
+        android:layout_height="wrap_content" />
+
+    <Button
+
+        android:id="@+id/bt_new_game_easy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/button_horizontal_margin"
+        android:layout_marginRight="@dimen/button_horizontal_margin"
+        android:layout_marginTop="30dp"
+        android:text="@string/easy" />
+
+    <Button
+        android:layout_marginTop="10dp"
+        android:id="@+id/bt_new_game_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/button_horizontal_margin"
+        android:layout_marginRight="@dimen/button_horizontal_margin"
+        android:text="@string/medium" />
+
+    <Button
+        android:layout_marginTop="10dp"
+        android:id="@+id/bt_new_game_hard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/button_horizontal_margin"
+        android:layout_marginRight="@dimen/button_horizontal_margin"
+        android:text="@string/hard" />
+
+</LinearLayout>
