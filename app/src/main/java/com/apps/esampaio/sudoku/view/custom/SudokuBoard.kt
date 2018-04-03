@@ -28,7 +28,7 @@ class SudokuBoard(private val context_: Context, attrs: AttributeSet) : View(con
     private var textPaintImmutable: Paint = Paint()
     private var textPaintMutable: Paint = Paint()
     private var squareWidth: Int = 0
-    private var selectedPosition: Rect? = null
+    private var selectedPosition: Point? = null
     private val strokeWidth = 2
 
     var listener: SudokuBoardListener? = null
@@ -148,7 +148,12 @@ class SudokuBoard(private val context_: Context, attrs: AttributeSet) : View(con
 
     private fun drawSelectedPosition(canvas: Canvas) {
         if (selectedPosition != null) {
-            canvas.drawRect(selectedPosition!!, selectedQuadrantPaint!!)
+            val selectedPositionSquare = buildSquareAtPosition(selectedPosition!!.x, selectedPosition!!.y, strokeWidth)
+            canvas.drawRect(selectedPositionSquare, selectedQuadrantPaint)
+            for ( i in 0..8){
+                canvas.drawRect(buildSquareAtPosition(selectedPosition!!.x,i,strokeWidth),selectedQuadrantPaint)
+                canvas.drawRect(buildSquareAtPosition(i,selectedPosition!!.y,strokeWidth),selectedQuadrantPaint)
+            }
         }
     }
 
@@ -168,7 +173,7 @@ class SudokuBoard(private val context_: Context, attrs: AttributeSet) : View(con
     }
 
     private fun setSelectedPosition(indexX: Int, indexY: Int) {
-        this.selectedPosition = buildSquareAtPosition(indexX, indexY, strokeWidth)
+        this.selectedPosition =Point(indexX, indexY)
     }
 
     private fun paintQuadrant(canvas: Canvas, start: Point) {

@@ -36,8 +36,7 @@ class SudokuGame {
     }
 
     fun isValidGame(): Boolean {
-//        return allNumbersIsSet() && allRowsIsValid() && allColumnsIsValid() && allQuadrantsIsValid()
-        return allNumbersIsSet() && allQuadrantsIsValid()
+        return allNumbersIsSet() && allRowsIsValid() && allColumnsIsValid() && allQuadrantsIsValid()
     }
 
     private fun allNumbersIsSet(): Boolean {
