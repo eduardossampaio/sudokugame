@@ -10,7 +10,7 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:src="@drawable/logo"
+        android:src="@drawable/logo2"
         android:layout_margin="60dp"
         android:transitionName="logo_transition"
         android:layout_width="@dimen/logo_size"

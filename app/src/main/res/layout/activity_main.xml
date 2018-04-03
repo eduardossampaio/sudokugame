@@ -21,7 +21,7 @@
             android:id="@+id/logo"
             android:layout_width="@dimen/logo_size"
             android:layout_height="@dimen/logo_size"
-            android:src="@drawable/logo"
+            android:src="@drawable/logo2"
             android:transitionName="logo_transition" />
     </LinearLayout>
 

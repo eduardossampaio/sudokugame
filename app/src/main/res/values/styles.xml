@@ -40,6 +40,9 @@
         <item name="android:layout_marginTop">15dp</item>
     </style>
 
+    <style name="NoBorderButton" parent="@style/Base.Widget.AppCompat.Button.Borderless">
+
+    </style>
     <style name="DefaultTextStyle" >
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">16sp</item>

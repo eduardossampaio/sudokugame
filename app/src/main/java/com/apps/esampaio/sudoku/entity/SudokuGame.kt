@@ -1,27 +1,25 @@
 package com.apps.esampaio.sudoku.entity
 
-import android.graphics.Point
-import android.util.Log
-import java.text.FieldPosition
-import java.util.HashMap
+
+import java.util.*
 
 /**
  * Created by eduar on 02/04/2018.
  */
 
 class SudokuGame {
-    var sudokuNumbers: HashMap<Point, SudokuNumber> = HashMap();
+    var sudokuNumbers: HashMap<Coordinate, SudokuNumber> = HashMap();
 
     constructor() {
     }
 
-    constructor(sudokuNumbers: HashMap<Point, SudokuNumber>) {
+    constructor(sudokuNumbers: HashMap<Coordinate, SudokuNumber>) {
         this.sudokuNumbers = sudokuNumbers;
     }
 
     fun addNumber(indexX: Int, indexY: Int, number: Int) {
         if (indexX in 0..8 && indexY in 0..8) {
-            val position = Point(indexX, indexY)
+            val position = Coordinate(indexX, indexY)
             if (sudokuNumbers.containsKey(position)) {
                 val numberSelected = sudokuNumbers[position]
                 if (!numberSelected!!.immutable) {
@@ -34,7 +32,9 @@ class SudokuGame {
             }
         }
     }
-
+    fun removeNumber(indexX: Int, indexY: Int) {
+        sudokuNumbers.remove(Coordinate(indexX,indexY))
+    }
     fun isValidGame(): Boolean {
         return allNumbersIsSet() && allRowsIsValid() && allColumnsIsValid() && allQuadrantsIsValid()
     }
@@ -64,7 +64,7 @@ class SudokuGame {
     private fun allQuadrantsIsValid(): Boolean {
         for (x in 0..6 step 3) {
             for (y in 0..6 step 3) {
-                if (!isQuadrantValid(Point(x, y))) {
+                if (!isQuadrantValid(Coordinate(x, y))) {
                     return false
                 }
             }
@@ -76,7 +76,7 @@ class SudokuGame {
         for (number in 1..9) {
             var containsNumber = false;
             for (rowIndex in 0..8) {
-                val sudokuNumber = sudokuNumbers[Point(columnIndex, rowIndex)]
+                val sudokuNumber = sudokuNumbers[Coordinate(columnIndex, rowIndex)]
                 if (sudokuNumber?.value == number) {
                     containsNumber = true;
                 }
@@ -92,7 +92,7 @@ class SudokuGame {
         for (number in 1..9) {
             var containsNumber = false;
             for (columnIndex in 0..8) {
-                val sudokuNumber = sudokuNumbers[Point(columnIndex, rowIndex)]
+                val sudokuNumber = sudokuNumbers[Coordinate(columnIndex, rowIndex)]
                 if (sudokuNumber?.value == number) {
                     containsNumber = true;
                 }
@@ -104,13 +104,13 @@ class SudokuGame {
         return true;
     }
 
-    private fun isQuadrantValid(initialPosition: Point): Boolean {
+    private fun isQuadrantValid(initialPosition: Coordinate): Boolean {
 
         for (number in 1..9) {
             var containsNumber = false;
             for (i in initialPosition.y..initialPosition.y + 2) {
                 for (j in initialPosition.x..initialPosition.x + 2) {
-                    val sudokuNumber = sudokuNumbers[Point(i, j)]
+                    val sudokuNumber = sudokuNumbers[Coordinate(i, j)]
                     if(sudokuNumber?.value==number){
                         containsNumber = true
                     }
@@ -122,5 +122,7 @@ class SudokuGame {
         }
         return true;
     }
+
+
 
 }

@@ -1,20 +1,13 @@
 package com.apps.esampaio.sudoku.view.custom
 
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.Point
-import android.graphics.Rect
-import android.graphics.RectF
+import android.graphics.*
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import com.apps.esampaio.sudoku.R
+import com.apps.esampaio.sudoku.entity.Coordinate
 import com.apps.esampaio.sudoku.entity.SudokuGame
-import com.apps.esampaio.sudoku.entity.SudokuNumber
-
-import java.util.HashMap
 
 /**
  * Created by eduardo.sampaio on 29/03/18.
@@ -28,7 +21,7 @@ class SudokuBoard(private val context_: Context, attrs: AttributeSet) : View(con
     private var textPaintImmutable: Paint = Paint()
     private var textPaintMutable: Paint = Paint()
     private var squareWidth: Int = 0
-    private var selectedPosition: Point? = null
+    private var selectedPosition: Coordinate? = null
     private val strokeWidth = 2
 
     var listener: SudokuBoardListener? = null
@@ -51,14 +44,14 @@ class SudokuBoard(private val context_: Context, attrs: AttributeSet) : View(con
 
         boardPaint.apply {
             isAntiAlias = true
-            color = Color.BLACK
+            color =context_.resources.getColor(R.color.board_border_color)
             style = Paint.Style.STROKE
             strokeJoin = Paint.Join.ROUND
             strokeWidth = 4f
         }
 
         quadrantPaint.apply {
-            color = Color.CYAN
+            color =context_.resources.getColor(R.color.quadrant_color)
             strokeWidth = 0f
             isAntiAlias = true
         }
@@ -82,7 +75,6 @@ class SudokuBoard(private val context_: Context, attrs: AttributeSet) : View(con
             color = context_.resources.getColor(R.color.mutable_text_color)
             textAlign = Paint.Align.CENTER
         }
-
     }
 
     fun drawBoard(canvas: Canvas) {
@@ -92,13 +84,13 @@ class SudokuBoard(private val context_: Context, attrs: AttributeSet) : View(con
                 canvas.drawRect(square, boardPaint!!)
             }
         }
-        paintQuadrant(canvas, Point(0, 0))
-        paintQuadrant(canvas, Point(6, 0))
+        paintQuadrant(canvas, Coordinate(0, 0))
+        paintQuadrant(canvas, Coordinate(6, 0))
 
-        paintQuadrant(canvas, Point(3, 3))
+        paintQuadrant(canvas, Coordinate(3, 3))
 
-        paintQuadrant(canvas, Point(0, 6))
-        paintQuadrant(canvas, Point(6, 6))
+        paintQuadrant(canvas, Coordinate(0, 6))
+        paintQuadrant(canvas, Coordinate(6, 6))
 
     }
 
@@ -119,15 +111,18 @@ class SudokuBoard(private val context_: Context, attrs: AttributeSet) : View(con
         return true
     }
 
-    private fun getClickedPosition(touchX: Float, touchY: Float): Point {
-        return Point((touchX / squareWidth).toInt(), (touchY / squareWidth).toInt())
+    private fun getClickedPosition(touchX: Float, touchY: Float): Coordinate {
+        return Coordinate((touchX / squareWidth).toInt(), (touchY / squareWidth).toInt())
     }
 
     fun addNumber(indexX: Int, indexY: Int, number: Int) {
         sudokuGame.addNumber(indexX,indexY,number)
         invalidate()
     }
-
+    fun removeNumber(indexX: Int, indexY: Int){
+        sudokuGame.removeNumber(indexX,indexY)
+        invalidate()
+    }
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         this.squareWidth = width / 9
@@ -168,15 +163,15 @@ class SudokuBoard(private val context_: Context, attrs: AttributeSet) : View(con
 
     }
 
-    private fun setSelectedPosition(selectedPosition: Point) {
+    private fun setSelectedPosition(selectedPosition: Coordinate) {
         setSelectedPosition(selectedPosition.x, selectedPosition.y)
     }
 
     private fun setSelectedPosition(indexX: Int, indexY: Int) {
-        this.selectedPosition =Point(indexX, indexY)
+        this.selectedPosition =Coordinate(indexX, indexY)
     }
 
-    private fun paintQuadrant(canvas: Canvas, start: Point) {
+    private fun paintQuadrant(canvas: Canvas, start: Coordinate) {
         for (i in start.x until start.x + 3) {
             for (j in start.y until start.y + 3) {
                 val square = buildSquareAtPosition(j, i, 2)
@@ -193,7 +188,7 @@ class SudokuBoard(private val context_: Context, attrs: AttributeSet) : View(con
     }
 
 
-    private fun getTextDrawPosition(text: String, rectF: RectF, paint: Paint?): Point {
+    private fun getTextDrawPosition(text: String, rectF: RectF, paint: Paint?): Coordinate {
         val align = paint!!.textAlign
         val x: Float
         val y: Float
@@ -210,7 +205,7 @@ class SudokuBoard(private val context_: Context, attrs: AttributeSet) : View(con
         val acent = Math.abs(metrics.ascent)
         val descent = Math.abs(metrics.descent)
         y = rectF.centerY() + (acent - descent) / 2f
-        return Point(x.toInt(), y.toInt())
+        return Coordinate(x.toInt(), y.toInt())
     }
 
 

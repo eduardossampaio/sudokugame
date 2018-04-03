@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import com.apps.esampaio.sudoku.R
+import com.apps.esampaio.sudoku.entity.Coordinate
 import com.apps.esampaio.sudoku.entity.SudokuGame
 import com.apps.esampaio.sudoku.entity.SudokuNumber
 import com.apps.esampaio.sudoku.view.custom.SudokuBoardListener
@@ -23,7 +24,7 @@ class GameActivity : AppCompatActivity(), SudokuBoardListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
         sudokuBoard.listener = this
-        val game = intent.extras["NUMBERS"] as HashMap<Point,SudokuNumber>
+        val game = intent.extras["NUMBERS"] as HashMap<Coordinate,SudokuNumber>
         sudokuGame = SudokuGame(game)
         sudokuBoard.sudokuGame = sudokuGame
     }
@@ -36,6 +37,10 @@ class GameActivity : AppCompatActivity(), SudokuBoardListener {
         }
     }
 
+    fun eraserClicked(view: View) {
+        sudokuBoard.removeNumber(selectedPositionX, selectedPositionY)
+        verifyIsValid()
+    }
     private fun verifyIsValid(){
         text_game_is_valid.text = "Game is valid: "+sudokuGame.isValidGame()
     }
