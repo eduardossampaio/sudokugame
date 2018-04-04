@@ -17,23 +17,33 @@ class SudokuGame {
         this.sudokuNumbers = sudokuNumbers;
     }
 
-    fun addNumber(indexX: Int, indexY: Int, number: Int) {
+    fun addNumber(indexX: Int, indexY: Int, number: Int):Boolean {
         if (indexX in 0..8 && indexY in 0..8) {
             val position = Coordinate(indexX, indexY)
             if (sudokuNumbers.containsKey(position)) {
                 val numberSelected = sudokuNumbers[position]
                 if (!numberSelected!!.immutable) {
                     sudokuNumbers.put(position, SudokuNumber(number, false))
-
+                    return true
                 }
 
             } else {
                 sudokuNumbers.put(position, SudokuNumber(number, false))
+                return true
             }
         }
+        return false
     }
-    fun removeNumber(indexX: Int, indexY: Int) {
-        sudokuNumbers.remove(Coordinate(indexX,indexY))
+    fun removeNumber(indexX: Int, indexY: Int):Boolean {
+        if (indexX in 0..8 && indexY in 0..8) {
+            val sudokuNumber = sudokuNumbers[Coordinate(indexX, indexY)]
+            if(sudokuNumber!=null && !sudokuNumber.immutable) {
+                sudokuNumbers.remove(Coordinate(indexX, indexY))
+                return true
+            }
+            return false
+        }
+        return false
     }
     fun isValidGame(): Boolean {
         return allNumbersIsSet() && allRowsIsValid() && allColumnsIsValid() && allQuadrantsIsValid()

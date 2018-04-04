@@ -1,36 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/transitions_container"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginLeft="30dp"
-    android:layout_marginRight="30dp"
-    android:layout_marginTop="15dp"
-    android:animateLayoutChanges="true"
     android:orientation="vertical"
-    tools:context="com.example.eduardosampaio.testeappdfh.MainActivity">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <TextView
-        android:text="Nível: X Dificuldade: Y TEMPO: XXX"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <include layout="@layout/toolbar" />
 
-    <TextView
-        android:id="@+id/text_game_is_valid"
-        android:text="is valid: "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <com.apps.esampaio.sudoku.view.custom.SudokuBoard
-        android:layout_marginTop="30dp"
-        android:id="@+id/sudoku_board_view"
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/transitions_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#f1f1f1" />
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="15dp"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical"
+        tools:context="com.example.eduardosampaio.testeappdfh.MainActivity">
 
-    <include layout="@layout/game_keyboard"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nível: X Dificuldade: Y TEMPO: XXX" />
+
+        <TextView
+            android:id="@+id/text_game_is_valid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="is valid: " />
+
+        <com.apps.esampaio.sudoku.view.custom.SudokuBoard
+            android:id="@+id/sudoku_board_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="#f1f1f1" />
+
+        <include layout="@layout/game_keyboard" />
 
 
-
+    </LinearLayout>
 </LinearLayout>

@@ -116,12 +116,14 @@ class SudokuBoard(private val context_: Context, attrs: AttributeSet) : View(con
     }
 
     fun addNumber(indexX: Int, indexY: Int, number: Int) {
-        sudokuGame.addNumber(indexX,indexY,number)
-        invalidate()
+        if ( sudokuGame.addNumber(indexX,indexY,number) ) {
+            invalidate()
+        }
     }
     fun removeNumber(indexX: Int, indexY: Int){
-        sudokuGame.removeNumber(indexX,indexY)
-        invalidate()
+        if(sudokuGame.removeNumber(indexX,indexY)) {
+            invalidate()
+        }
     }
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
@@ -145,10 +147,10 @@ class SudokuBoard(private val context_: Context, attrs: AttributeSet) : View(con
         if (selectedPosition != null) {
             val selectedPositionSquare = buildSquareAtPosition(selectedPosition!!.x, selectedPosition!!.y, strokeWidth)
             canvas.drawRect(selectedPositionSquare, selectedQuadrantPaint)
-            for ( i in 0..8){
-                canvas.drawRect(buildSquareAtPosition(selectedPosition!!.x,i,strokeWidth),selectedQuadrantPaint)
-                canvas.drawRect(buildSquareAtPosition(i,selectedPosition!!.y,strokeWidth),selectedQuadrantPaint)
-            }
+//            for ( i in 0..8){
+//                canvas.drawRect(buildSquareAtPosition(selectedPosition!!.x,i,strokeWidth),selectedQuadrantPaint)
+//                canvas.drawRect(buildSquareAtPosition(i,selectedPosition!!.y,strokeWidth),selectedQuadrantPaint)
+//            }
         }
     }
 
