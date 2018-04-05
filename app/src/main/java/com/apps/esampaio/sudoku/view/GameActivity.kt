@@ -13,7 +13,7 @@ import com.apps.esampaio.sudoku.view.custom.SudokuBoardListener
 import kotlinx.android.synthetic.main.activity_game.*
 import kotlinx.android.synthetic.main.activity_game.sudoku_board_view as sudokuBoard
 
-class GameActivity : AppCompatActivity(), SudokuBoardListener {
+class GameActivity : SuperActivity(), SudokuBoardListener {
 
     var numberClicked: String? = null
     var selectedPositionX: Int = -1

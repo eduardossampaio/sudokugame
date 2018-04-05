@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import kotlin.concurrent.schedule
 
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : SuperActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +24,7 @@ class SplashActivity : AppCompatActivity() {
         runOnUiThread {
             val options = ActivityOptions.makeSceneTransitionAnimation(this@SplashActivity, logo, "logo_transition")
             val intent = Intent(this, MainActivity::class.java)
-            intent.flags = intent.flags or Intent.FLAG_ACTIVITY_NO_HISTORY
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent, options.toBundle())
         }
     }

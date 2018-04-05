@@ -8,7 +8,7 @@ import com.apps.esampaio.sudoku.entity.Coordinate
 import com.apps.esampaio.sudoku.entity.SudokuNumber
 import kotlinx.android.synthetic.main.activity_new_game.*
 
-class NewGameActivity : AppCompatActivity() {
+class NewGameActivity : SuperActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

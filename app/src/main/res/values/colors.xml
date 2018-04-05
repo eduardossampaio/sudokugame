@@ -3,6 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="app_background">#fcf1f1</color>
 
     <color name="selected_square_color">#fa7e86</color>
     <color name="mutable_text_color">#161a79</color>
@@ -10,4 +11,9 @@
 
     <color name="quadrant_color">#00FFFF</color>
     <color name="board_border_color">@android:color/black</color>
+    <color name="toolbar_background">@android:color/transparent</color>
+
+    <color name="logo_color_1">#8418f3</color>
+    <color name="logo_color_2">#f4091f</color>
+    <color name="logo_color_3">#cd6a0a</color>
 </resources>

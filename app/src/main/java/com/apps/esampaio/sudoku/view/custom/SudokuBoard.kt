@@ -63,14 +63,14 @@ class SudokuBoard(private val context_: Context, attrs: AttributeSet) : View(con
         }
 
         textPaintImmutable.apply {
-            textSize = 80f
+            textSize = 80f;//squareWidth * 0.65f
             isAntiAlias = true
             color = context_.resources.getColor(R.color.immutable_text_color)
             textAlign = Paint.Align.CENTER
         }
 
         textPaintMutable.apply {
-            textSize = 80f
+            textSize = 80f;//squareWidth * 0.65f
             isAntiAlias = true
             color = context_.resources.getColor(R.color.mutable_text_color)
             textAlign = Paint.Align.CENTER

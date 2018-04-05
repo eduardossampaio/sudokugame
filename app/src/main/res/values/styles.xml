@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/app_background</item>
 
         <!-- transitions attributes -->
         <item name="android:windowContentTransitions">true</item>
@@ -15,15 +16,18 @@
         <!-- component styles -->
         <item name="android:buttonStyle">@style/RoundedButton</item>
         <item name="android:textViewStyle">@style/DefaultTextStyle</item>
+        <item name="android:actionBarStyle">@style/ToolbarBarStyle</item>
     </style>
 
-    <style name="ToolbarBarStyle" parent="Base.V7.Widget.AppCompat.Toolbar">
-        <item name="android:background">@android:color/transparent</item>
+    <style name="ToolbarBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@color/toolbar_background</item>
         <item name="android:textViewStyle">@style/ToolbarTextStyle</item>
     </style>
 
+
     <style name="ToolbarTextStyle" >
         <item name="android:gravity">center</item>
+        <item name="android:textSize">36sp</item>
 
     </style>
 
@@ -49,7 +53,8 @@
     </style>
 
     <style name="TitleStyle" parent="DefaultTextStyle">
-        <item name="android:textSize">33sp</item>
+        <item name="android:textSize">26sp</item>
     </style>
+
 
 </resources>
