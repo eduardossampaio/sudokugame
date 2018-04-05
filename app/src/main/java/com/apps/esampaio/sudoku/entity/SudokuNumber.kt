@@ -12,7 +12,7 @@ data class SudokuNumber(var value: Int, var immutable:Boolean=true):Serializable
         if (other == null || other !is SudokuNumber) {
             return false
         }
-        val otherSudokuNumber = other as SudokuNumber
+        val otherSudokuNumber = other
         return otherSudokuNumber.value == this.value
     }
 }

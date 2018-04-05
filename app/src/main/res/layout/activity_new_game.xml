@@ -13,10 +13,10 @@
         android:text="@string/select_difficulty"
         android:layout_width="match_parent"
         style="@style/TitleStyle"
+        android:textColor="@color/logo_color_3"
         android:layout_height="wrap_content" />
 
     <Button
-
         android:id="@+id/bt_new_game_easy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

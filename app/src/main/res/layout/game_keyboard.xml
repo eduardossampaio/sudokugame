@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+        android:orientation="horizontal">
 
         <Button
             style="@style/NoBorderButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
+
             android:layout_weight="1"
             android:gravity="center"
             android:onClick="numberClicked"
@@ -25,7 +24,7 @@
             style="@style/NoBorderButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
+
             android:layout_weight="1"
             android:gravity="center"
             android:onClick="numberClicked"
@@ -36,7 +35,7 @@
             style="@style/NoBorderButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
+
             android:layout_weight="1"
             android:gravity="center"
             android:onClick="numberClicked"
@@ -48,7 +47,7 @@
             style="@style/NoBorderButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
+
             android:layout_weight="1"
             android:gravity="center"
             android:onClick="numberClicked"
@@ -59,7 +58,7 @@
             style="@style/NoBorderButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
+
             android:layout_weight="1"
             android:gravity="center"
             android:onClick="numberClicked"
@@ -68,16 +67,16 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_weight="5"
-        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+        android:layout_weight="5"
+        android:orientation="horizontal">
 
         <Button
             style="@style/NoBorderButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
+
             android:layout_weight="1"
             android:gravity="center"
             android:onClick="numberClicked"
@@ -88,7 +87,7 @@
             style="@style/NoBorderButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
+
             android:layout_weight="1"
             android:gravity="center"
             android:onClick="numberClicked"
@@ -99,7 +98,7 @@
             style="@style/NoBorderButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
+
             android:layout_weight="1"
             android:gravity="center"
             android:onClick="numberClicked"
@@ -110,7 +109,7 @@
             style="@style/NoBorderButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
+
             android:layout_weight="1"
             android:gravity="center"
             android:onClick="numberClicked"
@@ -118,15 +117,14 @@
             android:textSize="@dimen/number_size" />
 
         <ImageView
-            android:src="@drawable/ic_eraser"
             style="@style/NoBorderButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginRight="5dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="9"
             android:onClick="eraserClicked"
+            android:src="@drawable/ic_eraser"
+            android:text="9"
             android:textSize="@dimen/number_size" />
     </LinearLayout>
 

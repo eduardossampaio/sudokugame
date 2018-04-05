@@ -38,7 +38,7 @@
 
     <style name="RoundedButton" parent="DefaultTextStyle">
         <item name="android:background">@drawable/rounded_button</item>
-        <item name="android:textColor">@android:color/holo_blue_dark</item>
+        <item name="android:textColor">@color/logo_color_1</item>
         <item name="android:minHeight">45dp</item>
         <item name="android:gravity">center_horizontal|center_vertical</item>
         <item name="android:layout_marginTop">15dp</item>

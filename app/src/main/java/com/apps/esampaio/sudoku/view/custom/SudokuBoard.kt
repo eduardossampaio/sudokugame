@@ -41,7 +41,7 @@ class SudokuBoard(private val context_: Context, attrs: AttributeSet) : View(con
     }
 
     private fun initializePaints() {
-
+        val defaultTextFont = Typeface.createFromAsset(context_.assets, "fonts/comic_sans_ms_bold.ttf")
         boardPaint.apply {
             isAntiAlias = true
             color =context_.resources.getColor(R.color.board_border_color)
@@ -67,6 +67,7 @@ class SudokuBoard(private val context_: Context, attrs: AttributeSet) : View(con
             isAntiAlias = true
             color = context_.resources.getColor(R.color.immutable_text_color)
             textAlign = Paint.Align.CENTER
+            typeface = Typeface.create(defaultTextFont,Typeface.BOLD)
         }
 
         textPaintMutable.apply {
@@ -74,6 +75,7 @@ class SudokuBoard(private val context_: Context, attrs: AttributeSet) : View(con
             isAntiAlias = true
             color = context_.resources.getColor(R.color.mutable_text_color)
             textAlign = Paint.Align.CENTER
+            typeface = Typeface.create(defaultTextFont,Typeface.BOLD)
         }
     }
 
