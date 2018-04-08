@@ -5,6 +5,8 @@ import android.graphics.*
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
+import android.view.ViewGroup
+import android.widget.LinearLayout
 import com.apps.esampaio.sudoku.R
 import com.apps.esampaio.sudoku.entity.Coordinate
 import com.apps.esampaio.sudoku.entity.SudokuGame
@@ -29,7 +31,6 @@ class SudokuBoard(private val context_: Context, attrs: AttributeSet) : View(con
     var sudokuGame: SudokuGame = SudokuGame()
 
     init {
-        initializePaints()
         this.squareWidth = width / 9
     }
 
@@ -38,6 +39,7 @@ class SudokuBoard(private val context_: Context, attrs: AttributeSet) : View(con
         val width = measuredWidth
         this.squareWidth = width / 9
         setMeasuredDimension(width, width)
+        initializePaints()
     }
 
     private fun initializePaints() {
@@ -63,19 +65,19 @@ class SudokuBoard(private val context_: Context, attrs: AttributeSet) : View(con
         }
 
         textPaintImmutable.apply {
-            textSize = 80f;//squareWidth * 0.65f
+            textSize = squareWidth * 0.65f
             isAntiAlias = true
             color = context_.resources.getColor(R.color.immutable_text_color)
             textAlign = Paint.Align.CENTER
-            typeface = Typeface.create(defaultTextFont,Typeface.BOLD)
+//            typeface = Typeface.create(defaultTextFont,Typeface.BOLD)
         }
 
         textPaintMutable.apply {
-            textSize = 80f;//squareWidth * 0.65f
+            textSize = squareWidth * 0.65f
             isAntiAlias = true
             color = context_.resources.getColor(R.color.mutable_text_color)
             textAlign = Paint.Align.CENTER
-            typeface = Typeface.create(defaultTextFont,Typeface.BOLD)
+//            typeface = Typeface.create(defaultTextFont,Typeface.BOLD)
         }
     }
 

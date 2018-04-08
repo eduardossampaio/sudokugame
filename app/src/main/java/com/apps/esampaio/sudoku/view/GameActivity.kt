@@ -1,13 +1,10 @@
 package com.apps.esampaio.sudoku.view
 
-import android.graphics.Point
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.annotation.UiThread
 import android.view.View
 import android.widget.TextView
 import com.apps.esampaio.sudoku.R
-import com.apps.esampaio.sudoku.asString
+import com.apps.esampaio.sudoku.entity.extensions.asString
 import com.apps.esampaio.sudoku.entity.Coordinate
 import com.apps.esampaio.sudoku.entity.SudokuGame
 import com.apps.esampaio.sudoku.entity.SudokuNumber
@@ -15,10 +12,7 @@ import com.apps.esampaio.sudoku.view.custom.SudokuBoardListener
 import kotlinx.android.synthetic.main.activity_game.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
-import java.time.Duration
-import java.time.temporal.ChronoUnit
 import java.util.*
-import kotlin.concurrent.thread
 import kotlinx.android.synthetic.main.activity_game.sudoku_board_view as sudokuBoard
 
 class GameActivity : SuperActivity(), SudokuBoardListener {
@@ -35,8 +29,7 @@ class GameActivity : SuperActivity(), SudokuBoardListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
         sudokuBoard.listener = this
-        val game = intent.extras["NUMBERS"] as HashMap<Coordinate,SudokuNumber>
-        sudokuGame = SudokuGame(game)
+        val sudokuGame = intent.extras["NUMBERS"] as SudokuGame
         sudokuBoard.sudokuGame = sudokuGame
         startCount()
     }

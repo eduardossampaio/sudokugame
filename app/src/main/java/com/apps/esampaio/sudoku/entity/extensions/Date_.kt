@@ -1,4 +1,4 @@
-package com.apps.esampaio.sudoku
+package com.apps.esampaio.sudoku.entity.extensions
 
 /**
  * Created by eduar on 04/04/2018.

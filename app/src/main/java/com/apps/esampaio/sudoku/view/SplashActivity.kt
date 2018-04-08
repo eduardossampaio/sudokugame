@@ -22,10 +22,10 @@ class SplashActivity : SuperActivity() {
 
     private fun goToMainActivity() {
         runOnUiThread {
-            val options = ActivityOptions.makeSceneTransitionAnimation(this@SplashActivity, logo, "logo_transition")
+//            val options = ActivityOptions.makeSceneTransitionAnimation(this@SplashActivity, logo, "logo_transition")
             val intent = Intent(this, MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent, options.toBundle())
+            startActivity(intent)
         }
     }
 }

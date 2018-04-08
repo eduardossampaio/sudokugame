@@ -8,6 +8,7 @@
     android:minHeight="?attr/actionBarSize">
 
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center">
@@ -17,7 +18,7 @@
             fontPath="fonts/comic_sans_ms_bold.ttf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SU"
+            android:text="Su"
             android:textColor="@color/logo_color_1"
             tools:ignore="MissingPrefix" />
 
@@ -26,7 +27,7 @@
             fontPath="fonts/comic_sans_ms_bold.ttf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DO"
+            android:text="do"
             android:textColor="@color/logo_color_2"
             tools:ignore="MissingPrefix" />
 
@@ -35,7 +36,7 @@
             fontPath="fonts/comic_sans_ms_bold.ttf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="KU"
+            android:text="ku"
             android:textColor="@color/logo_color_3"
             tools:ignore="MissingPrefix" />
     </LinearLayout>

@@ -10,5 +10,8 @@
     <string name="select_difficulty">Select Difficulty</string>
     <string name="sudoku">Sudoku</string>
     <string name="time">Time:</string>
+    <string name="game_1">Game 1</string>
+    <string name="completed">Completed</string>
+    <string name="not_completed">Not completed</string>
 
 </resources>

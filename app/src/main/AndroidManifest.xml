@@ -11,17 +11,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:noHistory="true"
             android:name=".view.SplashActivity"
+            android:noHistory="true"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".view.MainActivity" />
         <activity android:name=".view.NewGameActivity" />
-        <activity android:name=".view.GameActivity"></activity>
+        <activity android:name=".view.GameActivity" />
+        <activity android:name=".view.ListGamesActivity"></activity>
     </application>
 
 </manifest>

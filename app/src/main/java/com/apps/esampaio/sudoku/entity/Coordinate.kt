@@ -7,7 +7,7 @@ import java.io.Serializable
 /**
  * Created by eduar on 03/04/2018.
  */
-@Parcelize
-data class Coordinate(var x:Int,val y:Int) : Parcelable{
+
+data class Coordinate(var x:Int,val y:Int) : Serializable{
 
 }

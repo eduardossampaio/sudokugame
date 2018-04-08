@@ -1,20 +1,25 @@
 package com.apps.esampaio.sudoku.entity
 
 
+import java.io.Serializable
 import java.util.*
 
 /**
  * Created by eduar on 02/04/2018.
  */
 
-class SudokuGame {
+class SudokuGame : Serializable{
     var sudokuNumbers: HashMap<Coordinate, SudokuNumber> = HashMap();
+    var gameName:String
+    var isCompleted:Boolean = false
 
-    constructor() {
+
+    constructor(){
+        gameName = "No Name"
     }
-
-    constructor(sudokuNumbers: HashMap<Coordinate, SudokuNumber>) {
+    constructor(name:String,sudokuNumbers: HashMap<Coordinate, SudokuNumber>) {
         this.sudokuNumbers = sudokuNumbers;
+        this.gameName = name;
     }
 
     fun addNumber(indexX: Int, indexY: Int, number: Int):Boolean {
