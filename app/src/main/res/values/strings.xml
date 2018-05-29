@@ -13,5 +13,6 @@
     <string name="game_1">Game 1</string>
     <string name="completed">Completed</string>
     <string name="not_completed">Not completed</string>
+    <string name="game_completed">Game Completed</string>
 
 </resources>

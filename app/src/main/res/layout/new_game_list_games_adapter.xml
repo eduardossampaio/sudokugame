@@ -1,43 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:padding="15dp"
+    android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/game_name"
+        style="@style/ListTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/sudoku_board_view"
+        android:text="@string/game_1"
+        android:textColor="@color/logo_color_1" />
 
+    <TextView
+        android:id="@+id/game_status"
+        style="@style/ListTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/sudoku_board_view"
+        android:text="@string/completed"
+        android:textColor="@color/logo_color_1" />
 
-        <com.apps.esampaio.sudoku.view.custom.SudokuBoard
-            android:id="@+id/sudoku_board_view"
-            android:layout_width="115dp"
-            android:layout_height="115dp"
-            android:alpha="0.3"
-            android:enabled="false" />
-
-        <TextView
-            android:id="@+id/game_name"
-            style="@style/ListTextStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/sudoku_board_view"
-            android:text="@string/game_1"
-            android:textColor="@color/logo_color_1" />
-
-        <TextView
-            android:id="@+id/game_status"
-            style="@style/ListTextStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_toEndOf="@+id/sudoku_board_view"
-            android:text="@string/completed"
-            android:textColor="@color/logo_color_1" />
-    </RelativeLayout>
 </LinearLayout>

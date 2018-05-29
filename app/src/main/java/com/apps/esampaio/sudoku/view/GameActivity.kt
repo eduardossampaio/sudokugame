@@ -1,5 +1,6 @@
 package com.apps.esampaio.sudoku.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
@@ -29,7 +30,7 @@ class GameActivity : SuperActivity(), SudokuBoardListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
         sudokuBoard.listener = this
-        val sudokuGame = intent.extras["NUMBERS"] as SudokuGame
+        this.sudokuGame = intent.extras["NUMBERS"] as SudokuGame
         sudokuBoard.sudokuGame = sudokuGame
         startCount()
     }
@@ -63,7 +64,10 @@ class GameActivity : SuperActivity(), SudokuBoardListener {
         verifyIsValid()
     }
     private fun verifyIsValid(){
-//        text_game_is_valid.text = "Game is valid: "+sudokuGame.isValidGame()
+       if ( sudokuGame.isValidGame()){
+           val intent = Intent(this,GameCompleteActivity::class.java)
+           startActivity(intent)
+       }
     }
 
     override fun onPositionSelected(indexX: Int, indexY: Int) {

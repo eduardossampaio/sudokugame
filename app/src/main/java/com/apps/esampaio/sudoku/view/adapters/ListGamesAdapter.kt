@@ -30,7 +30,6 @@ class ListGamesAdapter : RecyclerView.Adapter<ListGamesAdapter.ListGamesAdapterV
     override fun onBindViewHolder(holder: ListGamesAdapterViewHolder, position: Int) {
         val sudokuGame = sudokuGames[position]
         holder.gameName.text = sudokuGame.gameName
-        holder.sudokuBoard.sudokuGame = sudokuGame
         holder.itemView.setOnClickListener {
             itemSelectedListener?.onItemSelected(sudokuGame)
         }
@@ -53,7 +52,6 @@ class ListGamesAdapter : RecyclerView.Adapter<ListGamesAdapter.ListGamesAdapterV
         }
     }
     class ListGamesAdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val sudokuBoard = itemView.sudoku_board_view
         val gameName = itemView.game_name
         val gameStatus = itemView.game_status
     }

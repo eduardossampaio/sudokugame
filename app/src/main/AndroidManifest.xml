@@ -23,7 +23,8 @@
         <activity android:name=".view.MainActivity" />
         <activity android:name=".view.NewGameActivity" />
         <activity android:name=".view.GameActivity" />
-        <activity android:name=".view.ListGamesActivity"></activity>
+        <activity android:name=".view.ListGamesActivity" />
+        <activity android:name=".view.GameCompleteActivity"></activity>
     </application>
 
 </manifest>

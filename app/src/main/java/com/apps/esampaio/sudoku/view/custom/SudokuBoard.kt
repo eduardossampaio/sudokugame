@@ -69,6 +69,7 @@ class SudokuBoard(private val context_: Context, attrs: AttributeSet) : View(con
             isAntiAlias = true
             color = context_.resources.getColor(R.color.immutable_text_color)
             textAlign = Paint.Align.CENTER
+            typeface = Typeface.create(this.typeface,Typeface.BOLD)
 //            typeface = Typeface.create(defaultTextFont,Typeface.BOLD)
         }
 
@@ -77,6 +78,7 @@ class SudokuBoard(private val context_: Context, attrs: AttributeSet) : View(con
             isAntiAlias = true
             color = context_.resources.getColor(R.color.mutable_text_color)
             textAlign = Paint.Align.CENTER
+            typeface = Typeface.create(this.typeface,Typeface.BOLD)
 //            typeface = Typeface.create(defaultTextFont,Typeface.BOLD)
         }
     }
