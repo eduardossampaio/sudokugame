@@ -21,10 +21,11 @@ class GameActivity : SuperActivity(), SudokuBoardListener {
     var numberClicked: String? = null
     var selectedPositionX: Int = -1
     var selectedPositionY: Int = -1
-    var sudokuGame:SudokuGame = SudokuGame();
+    var sudokuGame: SudokuGame = SudokuGame();
 
-    var gameFinished:Boolean = false
-    var activityRunning:Boolean = true
+    var gameFinished: Boolean = false
+    var activityRunning: Boolean = true
+    var elapsedTime: Long = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,11 +40,11 @@ class GameActivity : SuperActivity(), SudokuBoardListener {
         doAsync {
             val initialTime = System.currentTimeMillis()
             var currentTime = initialTime
-            while( ! gameFinished && activityRunning){
+            while (!gameFinished && activityRunning) {
                 Thread.sleep(1000)
                 currentTime = System.currentTimeMillis()
-//                val elapsedTime = Duration.of(currentTime, ChronoUnit.MILLIS)
-                val timeAsText = Date(currentTime - initialTime).asString("mm:ss")
+                elapsedTime = currentTime - initialTime
+                val timeAsText = Date(elapsedTime).asString("mm:ss")
                 uiThread {
                     time_text_view.text = timeAsText
                 }
@@ -63,11 +64,19 @@ class GameActivity : SuperActivity(), SudokuBoardListener {
         sudokuBoard.removeNumber(selectedPositionX, selectedPositionY)
         verifyIsValid()
     }
-    private fun verifyIsValid(){
-       if ( sudokuGame.isValidGame()){
-           val intent = Intent(this,GameCompleteActivity::class.java)
-           startActivity(intent)
-       }
+
+    private fun verifyIsValid() {
+        if (sudokuGame.isValidGame()) {
+            goToGameCompleteActivity()
+        }
+    }
+
+    private fun goToGameCompleteActivity() {
+        val intent = Intent(this, GameCompleteActivity::class.java)
+        intent.putExtra(GameCompleteActivity.EXTRAS_LEVEL_NUMBER, sudokuGame.gameName)
+        intent.putExtra(GameCompleteActivity.EXTRAS_SPENDED_TIME, elapsedTime)
+        intent.putExtra(GameCompleteActivity.EXTRAS_DIFICULITY, sudokuGame.difficulity)
+        startActivity(intent)
     }
 
     override fun onPositionSelected(indexX: Int, indexY: Int) {

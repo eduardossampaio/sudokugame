@@ -12,6 +12,7 @@ class SudokuGame : Serializable{
     var sudokuNumbers: HashMap<Coordinate, SudokuNumber> = HashMap();
     var gameName:String
     var isCompleted:Boolean = false
+    var difficulity:String=""
 
 
     constructor(){
@@ -20,6 +21,11 @@ class SudokuGame : Serializable{
     constructor(name:String,sudokuNumbers: HashMap<Coordinate, SudokuNumber>) {
         this.sudokuNumbers = sudokuNumbers;
         this.gameName = name;
+    }
+    constructor(name:String,sudokuNumbers: HashMap<Coordinate, SudokuNumber>,difficulity:String) {
+        this.sudokuNumbers = sudokuNumbers;
+        this.gameName = name;
+        this.difficulity = difficulity
     }
 
     fun addNumber(indexX: Int, indexY: Int, number: Int):Boolean {

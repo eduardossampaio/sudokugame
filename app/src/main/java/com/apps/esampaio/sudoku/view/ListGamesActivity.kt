@@ -120,14 +120,14 @@ class ListGamesActivity : SuperActivity() {
                 Coordinate(6,8) to SudokuNumber(1,false)
         );
 
-        this.games.add(SudokuGame("Level 1",sudokuNumbers))
-        this.games.add(SudokuGame("Level 2",sudokuNumbers))
-        this.games.add(SudokuGame("Level 3",sudokuNumbers))
-        this.games.add(SudokuGame("Level 4",sudokuNumbers))
-        this.games.add(SudokuGame("Level 5",sudokuNumbers))
-        this.games.add(SudokuGame("Level 6",sudokuNumbers))
-        this.games.add(SudokuGame("Level 7",sudokuNumbers))
-        this.games.add(SudokuGame("Level 9",sudokuNumbers))
+        this.games.add(SudokuGame("Level 1",sudokuNumbers,"EASY"))
+        this.games.add(SudokuGame("Level 2",sudokuNumbers,"EASY"))
+        this.games.add(SudokuGame("Level 3",sudokuNumbers,"EASY"))
+        this.games.add(SudokuGame("Level 4",sudokuNumbers,"EASY"))
+        this.games.add(SudokuGame("Level 5",sudokuNumbers,"EASY"))
+        this.games.add(SudokuGame("Level 6",sudokuNumbers,"EASY"))
+        this.games.add(SudokuGame("Level 7",sudokuNumbers,"EASY"))
+        this.games.add(SudokuGame("Level 9",sudokuNumbers,"EASY"))
     }
 
 

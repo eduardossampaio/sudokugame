@@ -33,55 +33,71 @@
     </LinearLayout>
 
     <TableLayout
+
+        android:id="@+id/statistics_table"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        
         android:gravity="center"
         android:layout_weight="1">
 
-        <TableRow>
+        <TableRow
+            android:id="@+id/statistics_row_level"
+            android:visibility="invisible"
+            android:layout_marginBottom="20dp">
 
             <TextView
                 style="@style/TableTextStyle"
+                android:textStyle="bold"
                 android:textColor="@color/logo_color_1"
                 android:layout_weight="1"
                 android:text="Level" />
 
             <TextView
+                android:id="@+id/statistics_level"
                 style="@style/TableTextStyle"
                 android:textColor="@color/logo_color_1"
                 android:layout_weight="1"
-                android:text="jkj" />
+                android:text="--level--" />
         </TableRow>
 
-        <TableRow>
+        <TableRow
+            android:id="@+id/statistics_row_difficulity"
+            android:visibility="invisible"
+            android:layout_marginBottom="20dp" >
 
             <TextView
                 style="@style/TableTextStyle"
                 android:textColor="@color/logo_color_2"
                 android:layout_weight="1"
+                android:textStyle="bold"
                 android:text="Dificulity" />
 
             <TextView
+                android:id="@+id/statistics_difficulity"
                 android:textColor="@color/logo_color_2"
                 style="@style/TableTextStyle"
                 android:layout_weight="1"
-                android:text="hj" />
+                android:text="--diif--" />
         </TableRow>
 
-        <TableRow>
+        <TableRow
+            android:id="@+id/statistics_row_time"
+            android:visibility="invisible"
+            android:layout_marginBottom="20dp">
 
             <TextView
                 android:textColor="@color/logo_color_3"
                 style="@style/TableTextStyle"
                 android:layout_weight="1"
+                android:textStyle="bold"
                 android:text="Time" />
 
             <TextView
+                android:id="@+id/statistics_time"
                 android:textColor="@color/logo_color_3"
                 style="@style/TableTextStyle"
                 android:layout_weight="1"
-                android:text="ghgh" />
+                android:text="--time--" />
         </TableRow>
 
     </TableLayout>

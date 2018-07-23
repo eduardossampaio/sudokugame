@@ -25,6 +25,6 @@
         android:layout_centerVertical="true"
         android:layout_toEndOf="@+id/sudoku_board_view"
         android:text="@string/completed"
-        android:textColor="@color/logo_color_1" />
+        android:textColor="@color/logo_color_3" />
 
 </LinearLayout>
