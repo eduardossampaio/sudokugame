@@ -14,5 +14,8 @@
     <string name="completed">Completed</string>
     <string name="not_completed">Not completed</string>
     <string name="game_completed">Game Completed</string>
+    <string name="statistics">Statistics</string>
+    <string name="close">Close</string>
+    <string name="share">Share</string>
 
 </resources>

@@ -4,11 +4,106 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.apps.esampaio.sudoku.view.GameCompleteActivity">
 
-    <TextView
-        android:text="@string/game_completed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
+        <include layout="@layout/toolbar" />
+
+        <TextView
+            style="@style/TitleStyle"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/game_completed"
+            android:textColor="@color/logo_color_2" />
+
+        <TextView
+            style="@style/SubtitleStyle"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/statistics"
+            android:textColor="@color/logo_color_1" />
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        
+        android:gravity="center"
+        android:layout_weight="1">
+
+        <TableRow>
+
+            <TextView
+                style="@style/TableTextStyle"
+                android:textColor="@color/logo_color_1"
+                android:layout_weight="1"
+                android:text="Level" />
+
+            <TextView
+                style="@style/TableTextStyle"
+                android:textColor="@color/logo_color_1"
+                android:layout_weight="1"
+                android:text="jkj" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/TableTextStyle"
+                android:textColor="@color/logo_color_2"
+                android:layout_weight="1"
+                android:text="Dificulity" />
+
+            <TextView
+                android:textColor="@color/logo_color_2"
+                style="@style/TableTextStyle"
+                android:layout_weight="1"
+                android:text="hj" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:textColor="@color/logo_color_3"
+                style="@style/TableTextStyle"
+                android:layout_weight="1"
+                android:text="Time" />
+
+            <TextView
+                android:textColor="@color/logo_color_3"
+                style="@style/TableTextStyle"
+                android:layout_weight="1"
+                android:text="ghgh" />
+        </TableRow>
+
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="bottom"
+        android:layout_margin="@dimen/button_horizontal_margin"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_marginBottom="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/share" />
+
+        <Button
+            android:layout_marginBottom="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/close" />
+    </LinearLayout>
 </LinearLayout>

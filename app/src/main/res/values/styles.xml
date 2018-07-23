@@ -41,6 +41,8 @@
         <item name="android:textColor">@color/logo_color_1</item>
         <item name="android:minHeight">45dp</item>
         <item name="android:gravity">center_horizontal|center_vertical</item>
+        <item name="android:layout_marginLeft">@dimen/button_horizontal_margin</item>
+        <item name="android:layout_marginRight">@dimen/button_horizontal_margin</item>
         <item name="android:layout_marginTop">15dp</item>
     </style>
 
@@ -54,6 +56,14 @@
 
     <style name="TitleStyle" parent="DefaultTextStyle">
         <item name="android:textSize">26sp</item>
+    </style>
+
+    <style name="SubtitleStyle" parent="DefaultTextStyle">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="TableTextStyle" parent="DefaultTextStyle">
+        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="ListTextStyle" parent="DefaultTextStyle">
