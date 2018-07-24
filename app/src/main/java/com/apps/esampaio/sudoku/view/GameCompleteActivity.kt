@@ -50,4 +50,12 @@ class GameCompleteActivity : AppCompatActivity() {
         view.animation = fadeInAnimattion
         view.visibility = View.VISIBLE
     }
+
+    fun  buttonShareClick(view: View){
+
+    }
+    fun  buttonCloseClick(view: View){
+        finish()
+    }
+
 }

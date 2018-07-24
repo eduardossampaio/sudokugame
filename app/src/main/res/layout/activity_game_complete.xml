@@ -111,12 +111,14 @@
         android:orientation="vertical">
 
         <Button
+            android:onClick="buttonShareClick"
             android:layout_marginBottom="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/share" />
 
         <Button
+            android:onClick="buttonCloseClick"
             android:layout_marginBottom="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

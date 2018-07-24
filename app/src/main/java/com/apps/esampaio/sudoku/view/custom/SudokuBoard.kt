@@ -140,10 +140,11 @@ class SudokuBoard(private val context_: Context, attrs: AttributeSet) : View(con
     }
 
     private fun drawNumbers(canvas: Canvas) {
-        for ((position, number) in sudokuGame.sudokuNumbers) {
-            if (number.immutable) {
+        for (number in sudokuGame.sudokuNumbers){
+            val position = number.coordinate
+            if (number.immutable){
                 drawNumber(canvas, number.value, position.x, position.y, textPaintImmutable)
-            } else {
+            }else{
                 drawNumber(canvas, number.value, position.x, position.y, textPaintMutable)
             }
         }
@@ -153,10 +154,6 @@ class SudokuBoard(private val context_: Context, attrs: AttributeSet) : View(con
         if (selectedPosition != null) {
             val selectedPositionSquare = buildSquareAtPosition(selectedPosition!!.x, selectedPosition!!.y, strokeWidth)
             canvas.drawRect(selectedPositionSquare, selectedQuadrantPaint)
-//            for ( i in 0..8){
-//                canvas.drawRect(buildSquareAtPosition(selectedPosition!!.x,i,strokeWidth),selectedQuadrantPaint)
-//                canvas.drawRect(buildSquareAtPosition(i,selectedPosition!!.y,strokeWidth),selectedQuadrantPaint)
-//            }
         }
     }
 

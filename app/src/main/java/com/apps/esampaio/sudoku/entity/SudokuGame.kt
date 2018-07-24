@@ -9,7 +9,7 @@ import java.util.*
  */
 
 class SudokuGame : Serializable{
-    var sudokuNumbers: HashMap<Coordinate, SudokuNumber> = HashMap();
+    var sudokuNumbers: MutableList<SudokuNumber> = mutableListOf()
     var gameName:String
     var isCompleted:Boolean = false
     var difficulity:String=""
@@ -18,43 +18,53 @@ class SudokuGame : Serializable{
     constructor(){
         gameName = "No Name"
     }
-    constructor(name:String,sudokuNumbers: HashMap<Coordinate, SudokuNumber>) {
+    constructor(name:String,sudokuNumbers: MutableList<SudokuNumber>) {
         this.sudokuNumbers = sudokuNumbers;
         this.gameName = name;
     }
-    constructor(name:String,sudokuNumbers: HashMap<Coordinate, SudokuNumber>,difficulity:String) {
+    constructor(name:String,sudokuNumbers: MutableList<SudokuNumber>,difficulity:String) {
         this.sudokuNumbers = sudokuNumbers;
         this.gameName = name;
         this.difficulity = difficulity
     }
 
     fun addNumber(indexX: Int, indexY: Int, number: Int):Boolean {
+
         if (indexX in 0..8 && indexY in 0..8) {
-            val position = Coordinate(indexX, indexY)
-            if (sudokuNumbers.containsKey(position)) {
-                val numberSelected = sudokuNumbers[position]
-                if (!numberSelected!!.immutable) {
-                    sudokuNumbers.put(position, SudokuNumber(number, false))
+            val position = Coordinate(indexX,indexY)
+            val numberFound = getNumber(position)
+            if(numberFound != null){
+                if(!numberFound.immutable){
+                    sudokuNumbers.add( SudokuNumber(position,number, false))
                     return true
                 }
-
-            } else {
-                sudokuNumbers.put(position, SudokuNumber(number, false))
-                return true
-            }
-        }
-        return false
-    }
-    fun removeNumber(indexX: Int, indexY: Int):Boolean {
-        if (indexX in 0..8 && indexY in 0..8) {
-            val sudokuNumber = sudokuNumbers[Coordinate(indexX, indexY)]
-            if(sudokuNumber!=null && !sudokuNumber.immutable) {
-                sudokuNumbers.remove(Coordinate(indexX, indexY))
-                return true
+            }else{
+                sudokuNumbers.add( SudokuNumber(position,number, false))
+                    return true
             }
             return false
         }
         return false
+    }
+    fun removeNumber(indexX: Int, indexY: Int):Boolean {
+        val number = getNumber(indexX,indexY)
+        if(number != null){
+            sudokuNumbers.remove(number)
+            return true
+        }
+        return false
+    }
+
+    private fun getNumber(indexX: Int,indexY: Int): SudokuNumber?{
+        return getNumber(Coordinate(indexX,indexY))
+    }
+    private fun getNumber(coordinate: Coordinate): SudokuNumber?{
+        for (number in sudokuNumbers){
+            if(number.coordinate.equals(coordinate)){
+                return number
+            }
+        }
+        return null
     }
     fun isValidGame(): Boolean {
         return allNumbersIsSet() && allRowsIsValid() && allColumnsIsValid() && allQuadrantsIsValid()
@@ -97,7 +107,8 @@ class SudokuGame : Serializable{
         for (number in 1..9) {
             var containsNumber = false;
             for (rowIndex in 0..8) {
-                val sudokuNumber = sudokuNumbers[Coordinate(columnIndex, rowIndex)]
+                val sudokuNumber =  getNumber(columnIndex, rowIndex)
+                        //sudokuNumbers[Coordinate(columnIndex, rowIndex)]
                 if (sudokuNumber?.value == number) {
                     containsNumber = true;
                 }
@@ -113,7 +124,8 @@ class SudokuGame : Serializable{
         for (number in 1..9) {
             var containsNumber = false;
             for (columnIndex in 0..8) {
-                val sudokuNumber = sudokuNumbers[Coordinate(columnIndex, rowIndex)]
+                val sudokuNumber = getNumber(columnIndex, rowIndex)
+                        //sudokuNumbers[Coordinate(columnIndex, rowIndex)]
                 if (sudokuNumber?.value == number) {
                     containsNumber = true;
                 }
@@ -131,7 +143,8 @@ class SudokuGame : Serializable{
             var containsNumber = false;
             for (i in initialPosition.y..initialPosition.y + 2) {
                 for (j in initialPosition.x..initialPosition.x + 2) {
-                    val sudokuNumber = sudokuNumbers[Coordinate(i, j)]
+                    val sudokuNumber = getNumber(i, j)
+                    //sudokuNumbers[Coordinate(i, j)]
                     if(sudokuNumber?.value==number){
                         containsNumber = true
                     }
